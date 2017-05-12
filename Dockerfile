@@ -57,6 +57,9 @@ RUN dnf install -y tar \
   && /bin/bash -c "echo sdkman_auto_answer=true > ~/.sdkman/etc/config" \
   && /bin/bash -c -l "sdk install lazybones"
 
+RUN gem install --no-ri --no-rdoc prawn-templates
+RUN gem uninstall prawn-templates --version '0.0.3' --force
+
 WORKDIR /documents
 VOLUME /documents
 
